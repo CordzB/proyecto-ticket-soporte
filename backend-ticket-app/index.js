@@ -12,19 +12,15 @@ app.use(express.json());
 
 // Ruta de prueba
 app.get('/', (req, res) => {
-  res.send('Servidor corriendo correctamente ');
+  res.send('Servidor corriendo correctamente');
 });
 
-
-const authRoutes = require('./routes/authRoutes');
-app.use('/api', authRoutes);
-
+// Rutas
 const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/tickets', ticketRoutes);
 
-// Puerto
+// Puerto dinámico para Render
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
-
 });
